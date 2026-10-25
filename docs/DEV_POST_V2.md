@@ -62,7 +62,7 @@ DeedReader is the lazy version of that job: **paste, glance, approve.**
 
 ## Demo
 
-The video above is the whole tour. The studio replays **real recorded outputs of my fine-tuned model** on deeds it never saw in training, while every safety check runs **live in your browser**.
+The studio replays **real recorded outputs of my fine-tuned model** on deeds it never saw in training, while every safety check runs **live in your browser**.
 
 **Paste, glance, approve.** A clean deed: every check passes, the parcel closes to 1:2.9 million, and the studio reports 43.44 acres. Click any sentence and its side lights up in the drawing. Export to SVG, DXF or GeoJSON in one click.
 
