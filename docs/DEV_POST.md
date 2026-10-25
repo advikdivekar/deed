@@ -83,7 +83,9 @@ It works on a phone-width screen too.
 
 ## Code
 
-<!-- ADD BEFORE PUBLISHING: GitHub repo link -->
+{% github advikdivekar/deed %}
+
+<!-- repo is currently private: make it public before publishing this post -->
 
 `deedreader/` closure math and validator · `data/` synthetic generator · `train/` Tinker SFT · `eval/` metrics and report · `app/web/` Next.js UI · `offline/` run with no internet · `tests/`.
 
