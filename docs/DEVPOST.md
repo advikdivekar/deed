@@ -50,9 +50,9 @@ Slow work, made steady, by a model that knows its place.
 
 ## Demo
 
-> 🎬 **Demo video:** *(embedded here at publish)*
->
-> Made with open tools too: narration by Kokoro (Apache-2.0), animation by HTML, CSS and GSAP, rendered with HyperFrames.
+{% embed https://youtu.be/S-m8AZUy7a8 %}
+
+*Narration by Kokoro (Apache-2.0), animated in HTML and GSAP, rendered with HyperFrames. The footage is the real app.*
 
 The studio is a Next.js app. It replays **real recorded outputs from my fine-tuned model**, on deeds it never saw in training, while every safety check runs **live in your browser**. The model's output is the model's. The checks are real code. Nothing here is mocked.
 
