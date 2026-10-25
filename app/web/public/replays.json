@@ -1,0 +1,93 @@
+[
+ {
+  "id": "test_id_big-00528",
+  "title": "Modern subdivision lot with curves",
+  "blurb": "Feet and DMS bearings",
+  "style": "modern_sym",
+  "heldout": false,
+  "text": "Beginning at an iron pin found at the intersection of the south line of Oak Avenue and the west line of Pine Street; thence along the arc of a curve to the right, having a radius of 3636.54 feet, an arc length of 1258.84 feet, a chord bearing of N 67\u00b007'56\" W and a chord distance of 1252.56 feet to a red oak tree; thence S 60\u00b034'09\" W, 590.18 feet to a red oak tree; running thence S 4\u00b009'47\" E for 1077.06 feet to a stone; thence S 12\u00b057'14\" W, a distance of 343.50 feet to a point in the centerline of County Road 12; thence running along the arc of a curve to the right, having a radius of 1252.55 feet, an arc length of 908.40 feet, a chord bearing of N 73\u00b048'33\" E and a chord distance of 888.62 feet to a hickory tree; thence running N 82\u00b020'42\" E 330.94 feet to a hickory tree; then N 22\u00b054'17\" E 816.20 feet to a white oak tree; thence N 44\u00b053'51\" E for 237.89 feet to the place of beginning. Containing 44.12 acres, more or less. SUBJECT TO restrictive covenants of record and to the rights of others in and to the creek.",
+  "output": "POB iron pin\nC N 67 7 56 W 1252.56 ft R 3636.54 ft R | red oak\nL S 60 34 9 W 590.18 ft | red oak\nL S 4 9 47 E 1077.06 ft | stone\nL S 12 57 14 W 343.5 ft | road\nC N 73 48 33 E 888.62 ft R 1252.55 ft R | hickory\nL N 82 20 42 E 330.94 ft | hickory\nL N 22 54 17 E 816.2 ft | white oak\nL N 44 53 51 E 237.89 ft | pob\n",
+  "minlp_num": -1.07287787614041e-05,
+  "n_prompt": 404,
+  "n_out": 215,
+  "model": "Qwen3-8B + LoRA (v2)"
+ },
+ {
+  "id": "test_id_big-00067",
+  "title": "Surveyor shorthand with curves",
+  "blurb": "N41-00-00E style with a curve",
+  "style": "modern_dash",
+  "heldout": false,
+  "text": "Commencing at a cedar post at the corner of Tract 7 as shown on the plat recorded in Plat Book 12, Page 88; running thence S46-30-11W, 1011.25' to a corner post; thence running along a curve to the right (R=757.19', Arc=369.19', Chord=S44-05-24E 365.54') to a point in the center of the road; thence running S06-24-49E 98.21' to a point in the creek; thence along a curve to the right (R=2031.29', Arc=1109.84', Chord=S50-53-26E 1096.09') to a 24 inch white oak; thence running N31-32-34E 66.36 poles to a point in the run; thence N23-16-52W 1206.14' to a 4 inch concrete monument; then S55-12-57W for 428.35' to a 4 inch concrete monument; then S68-47-12W, a distance of 135.71' to the point of beginning. LESS AND EXCEPT that portion conveyed to the County for road right-of-way, 20 feet in width along the east line.",
+  "output": "POB post\nL S 46 30 11 W 1011.25 ft | post\nC S 44 5 24 E 365.54 ft R 757.19 ft R | road\nL S 6 24 49 E 98.21 ft | creek\nC S 50 53 26 E 1096.09 ft R 2031.29 ft R | white oak\nL N 31 32 34 E 66.36 pole | creek\nL N 23 16 52 W 1206.14 ft | concrete monument\nL S 55 12 57 W 428.35 ft | concrete monument\nL S 68 47 12 W 135.71 ft | pob\n",
+  "minlp_num": -2.3841855067985307e-07,
+  "n_prompt": 355,
+  "n_out": 212,
+  "model": "Qwen3-8B + LoRA (v2)"
+ },
+ {
+  "id": "test_id_big-00016",
+  "title": "1800s chains and links",
+  "blurb": "Chains, links and old phrasing",
+  "style": "archaic_chains",
+  "heldout": false,
+  "text": "Commencing at a stone on the north bank of the run; then south 18 degrees 2 minutes west 14.38 chains to a red oak tree; thence running south 52 degrees 49 minutes east, 8.71 chains to a red oak; thence south 61 degrees 21 minutes east for 5 chains and 37 links to a point in the creek; thence north 53 degrees 24 minutes east for 7 chains and 42 links to a point in the creek; thence north 73 degrees 25 minutes east for 2 chains and 51 links to a hickory sapling; thence north 9 degrees 23 minutes east 9 chains and 70 links to a point in the creek; running thence north 50 degrees 44 minutes west, 7.48 chains to a stone in the ground; thence running north 79 degrees 41 minutes west, 11.54 chains to the point of beginning. Containing 31.41 acres, more or less. SUBJECT TO restrictive covenants of record and to the rights of others in and to the creek.",
+  "output": "POB stone\nL S 18 2 0 W 14.38 chain | red oak\nL S 52 49 0 E 8.71 chain | red oak\nL S 61 21 0 E 5.37 chain | creek\nL N 53 24 0 E 7.42 chain | creek\nL N 73 25 0 E 2.51 chain | hickory\nL N 9 23 0 E 9.7 chain | creek\nL N 50 44 0 W 7.48 chain | stone\nL N 79 41 0 W 11.54 chain | pob\n",
+  "minlp_num": -4.768370445162873e-07,
+  "n_prompt": 271,
+  "n_out": 168,
+  "model": "Qwen3-8B + LoRA (v2)"
+ },
+ {
+  "id": "test_id_big-00047",
+  "title": "Scanned deed (OCR noise)",
+  "blurb": "Broken lines, odd symbols, damaged words",
+  "style": "ocr",
+  "heldout": false,
+  "text": "BEGINNING at a marked stone at the corner of Tract 7 as shown on\n the plat recorded in Plat Book 12, Page\n 88;\n thence\n N 15o50\u2019 W, 37.7 feet to a fence post; thence\n N 32o35\u2019\n E  for 230.8 feet to a red oak; running thence S.  49o 32\u2019 E. for 55.1 feet along to  a fence post; running thence N 81o15\u2019 E for 135.1 ft. to a cedar post; then S. 27o 32\u2019 E. 159.4 ft. to a fence post; thence S. 16o 39\u2019 W. for 256.8 ft.\n along to a corner post; running thence S. 75o 10\u2019 W. for 101.8 feet to a wooden stake; thence running N 44o W, 275.1 ft. to the place of beginning. Containing 2.39 acres,\n more or less.",
+  "output": "POB stone\nL N 15 50 0 W 37.7 ft | post\nL N 32 35 0 E 230.8 ft | red oak\nL S 49 32 0 E 55.1 ft | post\nL N 81 15 0 E 135.1 ft | post\nL S 27 32 0 E 159.4 ft | post\nL S 16 39 0 W 256.8 ft | post\nL S 75 10 0 W 101.8 ft | stake\nL N 44 0 0 W 275.1 ft | pob\n",
+  "minlp_num": -1.1920928244535389e-07,
+  "n_prompt": 272,
+  "n_out": 171,
+  "model": "Qwen3-8B + LoRA (v2)"
+ },
+ {
+  "id": "test_spelled_fresh-00037",
+  "title": "Every number spelled out",
+  "blurb": "Held-out style: never seen in training",
+  "style": "spelled",
+  "heldout": true,
+  "text": "BEGINNING at a hickory at the southwest corner of the Smith lot; then north eighty degrees two minutes east, six hundred sixteen and eight tenths feet along to a wooden stake; thence north fifty-seven degrees forty-eight minutes east, two hundred ninety-four and six tenths feet along to a point in the creek; thence north fifteen degrees eleven minutes west, two hundred twenty-five and eight tenths feet to a point in the run; thence running north fifteen degrees twenty-nine minutes east, five hundred seventy-eight and nine tenths feet along to a red oak; thence north eighty degrees fifty-five minutes west for nine hundred fifty-six and one tenth feet to a red oak tree; thence south sixty-two degrees twelve minutes west five hundred fifty-seven and seven tenths feet along to a wooden stake; then south fourteen degrees twenty-three minutes east, one thousand one hundred forty-six and two tenths feet to a fence post; thence north forty-eight degrees six minutes east for two hundred sixty-nine and four tenths feet to the place of beginning.",
+  "output": "POB hickory\nL N 80 2 0 E 616.8 ft | stake\nL N 57 48 0 E 294.6 ft | creek\nL N 15 11 0 W 225.8 ft | creek\nL N 15 29 0 E 578.9 ft | red oak\nL N 80 55 0 W 956.1 ft | red oak\nL S 62 12 0 W 557.7 ft | stake\nL S 14 23 0 E 1146.2 ft | post\nL N 48 6 0 E 269.4 ft | pob\n",
+  "minlp_num": -2.1457441107486375e-05,
+  "n_prompt": 226,
+  "n_out": 176,
+  "model": "Qwen3-8B + LoRA (v2)"
+ },
+ {
+  "id": "test_varas_fresh-00004",
+  "title": "Texas varas",
+  "blurb": "Held-out unit: varas were never in training",
+  "style": "varas",
+  "heldout": true,
+  "text": "BEGINNING at a point in the creek at the southwest corner of the Smith lot; running thence N 79\u00b004' E 115.2 varas to a corner post; then S 39\u00b022' E, 54.7 varas to a red oak; thence N. 82\u00b0 31' E. for 419.7 varas to a red oak; running thence N 76\u00b009' E, 74.8 varas to a cedar post; thence N 49\u00b005' W for 621.7 varas to a hickory tree; running thence S 56\u00b040' W for 201.8 varas to a stone in the ground; then S 32\u00b020' E, 213.2 varas to a point in the creek; thence S 33\u00b041' W, 202.2 varas to the point of beginning. Containing 28.51 acres, more or less.",
+  "output": "POB creek\nL N 79 4 0 E 115.2 vara | post\nL S 39 22 0 E 54.7 vara | red oak\nL N 82 31 0 E 419.7 vara | red oak\nL N 76 9 0 E 74.8 vara | post\nL N 49 5 0 W 621.7 vara | hickory\nL S 56 40 0 W 201.8 vara | stone\nL S 32 20 0 E 213.2 vara | creek\nL S 33 41 0 W 202.2 vara | pob\n",
+  "minlp_num": -7.152555099310121e-07,
+  "n_prompt": 250,
+  "n_out": 172,
+  "model": "Qwen3-8B + LoRA (v2)"
+ },
+ {
+  "id": "test_heldout_style-00081",
+  "title": "Every number spelled out (zero-shot)",
+  "blurb": "Held-out style: never seen in training \u00b7 an early model misread this deed and the checks flagged it",
+  "style": "spelled",
+  "heldout": false,
+  "text": "Beginning at a point in the creek on the north bank of the run; thence running north sixty-nine degrees west, five hundred forty and two tenths feet to a twenty-four inch white oak; running thence south five degrees twenty-seven minutes east five hundred fifty-five and five tenths feet to a red oak; thence north seventy-four degrees sixteen minutes east for three hundred ninety-one and five tenths feet to a hickory; running thence north sixteen degrees twenty-six minutes east for two hundred sixty-four feet to the point of beginning. Containing 4.09 acres, more or less. SUBJECT TO restrictive covenants of record and to the rights of others in and to the creek.",
+  "output": "POB creek\nL N 69 0 0 W 542.2 ft | white oak\nL S 5 27 0 E 555.5 ft | red oak\nL N 74 16 0 E 391.5 ft | hickory\nL N 16 26 0 E 264 ft | pob\n",
+  "minlp_num": -0.002837443258613348,
+  "n_prompt": 155,
+  "n_out": 89,
+  "model": "Qwen3-8B + LoRA (v1)"
+ }
+]

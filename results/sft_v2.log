@@ -1,0 +1,51 @@
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+2300 examples, 871,141 tokens/epoch, est train cost $1.15; spent so far $1.28 / cap $20.00
+metrics keys: ['clock_cycle:unique', 'loss:sum']
+step 1/429 lr=4.00e-05 {'loss:sum': 1805.7183} 16s
+step 11/429 lr=1.96e-04 {'loss:sum': 80.657} 38s
+step 21/429 lr=1.92e-04 {'loss:sum': 2.7432} 58s
+step 31/429 lr=1.87e-04 {'loss:sum': 12.7224} 81s
+step 41/429 lr=1.83e-04 {'loss:sum': 0.1057} 99s
+step 51/429 lr=1.79e-04 {'loss:sum': 8.6822} 120s
+step 61/429 lr=1.75e-04 {'loss:sum': 0.1959} 141s
+step 71/429 lr=1.71e-04 {'loss:sum': 2.2021} 164s
+step 81/429 lr=1.66e-04 {'loss:sum': 0.1035} 186s
+step 91/429 lr=1.62e-04 {'loss:sum': 1.5823} 207s
+step 101/429 lr=1.58e-04 {'loss:sum': 0.2701} 231s
+step 111/429 lr=1.54e-04 {'loss:sum': 0.0097} 252s
+step 121/429 lr=1.50e-04 {'loss:sum': 3.1046} 288s
+step 131/429 lr=1.45e-04 {'loss:sum': 0.0461} 311s
+step 141/429 lr=1.41e-04 {'loss:sum': 0.1751} 330s
+saved epoch 1: tinker://f8f9085c-bab4-5957-9c0b-973928fff482:train:0/sampler_weights/qwen8b-r32-v2-ep1
+step 151/429 lr=1.37e-04 {'loss:sum': 0.1269} 354s
+step 161/429 lr=1.33e-04 {'loss:sum': 0.0998} 374s
+step 171/429 lr=1.29e-04 {'loss:sum': 2.6285} 394s
+step 181/429 lr=1.24e-04 {'loss:sum': 0.0279} 418s
+step 191/429 lr=1.20e-04 {'loss:sum': 0.0432} 448s
+step 201/429 lr=1.16e-04 {'loss:sum': 0.1644} 467s
+step 211/429 lr=1.12e-04 {'loss:sum': 0.0224} 486s
+step 221/429 lr=1.07e-04 {'loss:sum': 0.0635} 509s
+step 231/429 lr=1.03e-04 {'loss:sum': 0.0145} 530s
+step 241/429 lr=9.91e-05 {'loss:sum': 0.2637} 549s
+step 251/429 lr=9.49e-05 {'loss:sum': 0.0392} 570s
+step 261/429 lr=9.07e-05 {'loss:sum': 0.2041} 589s
+step 271/429 lr=8.64e-05 {'loss:sum': 0.0336} 609s
+step 281/429 lr=8.22e-05 {'loss:sum': 0.0223} 629s
+saved epoch 2: tinker://f8f9085c-bab4-5957-9c0b-973928fff482:train:0/sampler_weights/qwen8b-r32-v2-ep2
+step 291/429 lr=7.80e-05 {'loss:sum': 0.0131} 660s
+step 301/429 lr=7.38e-05 {'loss:sum': 0.0064} 681s
+step 311/429 lr=6.96e-05 {'loss:sum': 0.0095} 700s
+step 321/429 lr=6.54e-05 {'loss:sum': 0.2193} 725s
+step 331/429 lr=6.12e-05 {'loss:sum': 0.0022} 743s
+step 341/429 lr=5.70e-05 {'loss:sum': 0.0013} 764s
+step 351/429 lr=5.28e-05 {'loss:sum': 0.0014} 785s
+step 361/429 lr=4.86e-05 {'loss:sum': 0.001} 811s
+step 371/429 lr=4.44e-05 {'loss:sum': 0.0054} 834s
+step 381/429 lr=4.02e-05 {'loss:sum': 0.0006} 857s
+step 391/429 lr=3.60e-05 {'loss:sum': 0.0003} 881s
+step 401/429 lr=3.18e-05 {'loss:sum': 0.0029} 905s
+step 411/429 lr=2.76e-05 {'loss:sum': 0.0001} 927s
+step 421/429 lr=2.34e-05 {'loss:sum': 0.0007} 949s
+step 429/429 lr=2.00e-05 {'loss:sum': 0.1271} 965s
+saved epoch 3: tinker://f8f9085c-bab4-5957-9c0b-973928fff482:train:0/sampler_weights/qwen8b-r32-v2-ep3
+done in 971s, est $1.15

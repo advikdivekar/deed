@@ -1,0 +1,13 @@
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+1000 examples, 381,153 tokens/epoch, est train cost $0.17; spent so far $1.60 / cap $20.00
+metrics keys: ['clock_cycle:unique', 'loss:sum']
+step 1/62 lr=4.00e-05 {'loss:sum': 1876.3926} 10s
+step 11/62 lr=1.70e-04 {'loss:sum': 112.6138} 32s
+step 21/62 lr=1.41e-04 {'loss:sum': 2.8245} 64s
+step 31/62 lr=1.11e-04 {'loss:sum': 0.5743} 85s
+step 41/62 lr=8.20e-05 {'loss:sum': 0.4533} 106s
+step 51/62 lr=5.25e-05 {'loss:sum': 0.1821} 128s
+step 61/62 lr=2.30e-05 {'loss:sum': 0.4832} 149s
+step 62/62 lr=2.00e-05 {'loss:sum': 0.2636} 151s
+saved epoch 1: tinker://024bba03-3462-5110-8b11-2b4df769170f:train:0/sampler_weights/curve-n1000-ep1
+done in 156s, est $0.17

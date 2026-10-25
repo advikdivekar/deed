@@ -1,0 +1,3 @@
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 3078.01it/s]
+loaded base + 253 LoRA modules in 3.6s
+local MLX 4-bit, 150 deeds: exact 100.0%  flagged 0.0%  silent 0  median 7.5s/deed  21.4 tok/s

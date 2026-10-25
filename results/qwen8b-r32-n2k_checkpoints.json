@@ -1,0 +1,5 @@
+{
+ "ep1": "tinker://954cafcc-3f6e-5526-96b2-c5ab8d932cd6:train:0/sampler_weights/qwen8b-r32-n2k-ep1",
+ "ep2": "tinker://954cafcc-3f6e-5526-96b2-c5ab8d932cd6:train:0/sampler_weights/qwen8b-r32-n2k-ep2",
+ "ep3": "tinker://954cafcc-3f6e-5526-96b2-c5ab8d932cd6:train:0/sampler_weights/qwen8b-r32-n2k-ep3"
+}

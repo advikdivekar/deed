@@ -1,0 +1,8 @@
+/Users/advikdivekar/Desktop/hacktober/offline/download_adapter.py:12: FutureWarning: DEPRECATED: RestClient.get_checkpoint_archive_url*() is deprecated and will NOT be supported in future tinker SDK versions; the server may already reject it for your organization. Migrate now: save the weights with TrainingClient.save_weights_external() and download them with RestClient.get_external_weights_urls().
+  url = rc.get_checkpoint_archive_url_from_tinker_path(path).result().url
+DEPRECATED: RestClient.get_checkpoint_archive_url*() is deprecated and will NOT be supported in future tinker SDK versions; the server may already reject it for your organization. Migrate now: save the weights with TrainingClient.save_weights_external() and download them with RestClient.get_external_weights_urls().
+Creating checkpoint archive for run id: f8f9085c-bab4-5957-9c0b-973928fff482:train:0 checkpoint id: sampler_weights/qwen8b-r32-v2-ep3 (this may take a while)
+... still running
+... still running
+... still running
+saved to offline/adapters/v2-ep3 ['adapter_model.safetensors', 'checkpoint_complete', 'adapter_config.json']
