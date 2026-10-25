@@ -1,0 +1,37 @@
+<template>
+  <style>
+    #root { position:absolute; inset:0; overflow:hidden; font-family:Inter, sans-serif; }
+    #end-wrap { position:absolute; inset:0; background:#003135; color:#F4F7F7; }
+    #end-lock { position:absolute; left:0; width:1920px; top:150px; display:flex; justify-content:center; align-items:center; gap:36px; }
+    #end-mark { width:170px; height:170px; border-radius:28%; box-shadow:0 14px 40px -10px rgba(15,164,175,.45); }
+    #end-word { font:600 128px/1 Inter, sans-serif; letter-spacing:-.04em; }
+    .end-line { position:absolute; left:0; width:1920px; text-align:center; font:300 76px/1 Inter, sans-serif; letter-spacing:-.03em; }
+    #end-l3 { top:690px; font-size:60px; color:#6FD6DE; font-weight:400; }
+    #end-chips { position:absolute; left:0; width:1920px; top:820px; display:flex; justify-content:center; gap:22px; }
+    #end-chips span { display:inline-block; padding:14px 30px; border-radius:999px; font:600 30px "JetBrains Mono", monospace; border:2px solid rgba(111,214,222,.55); color:#F4F7F7; }
+    #end-url { position:absolute; left:0; width:1920px; top:930px; text-align:center; font:500 34px "JetBrains Mono", monospace; color:#6FD6DE; }
+  </style>
+  <div id="root" data-composition-id="end" data-width="1920" data-height="1080">
+    <div id="end-wrap">
+      <div id="end-lock">
+        <svg id="end-mark" class="clip" data-start="0.6" data-duration="8.4" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" fill="#003135" stroke="#0FA4AF" stroke-width="1" /><path d="M11 33 L17 14 L36 11 L38 30 Z" fill="rgba(15,164,175,.18)" stroke="#6FD6DE" stroke-width="2.4" stroke-linejoin="round" /><circle cx="11" cy="33" r="4" fill="#0FA4AF" stroke="#003135" stroke-width="1.5" /></svg>
+        <span id="end-word" class="clip" data-start="0.9" data-duration="8.1">deedreader</span>
+      </div>
+      <p id="end-l1" class="end-line clip" data-start="1.5" data-duration="7.5" style="top:420px;color:#9DB5B7">The model reads.</p>
+      <p id="end-l2" class="end-line clip" data-start="2.8" data-duration="6.2" style="top:520px">Code decides.</p>
+      <p id="end-l3" class="end-line clip" data-start="4.1" data-duration="4.9">Slow, steady, and open.</p>
+      <div id="end-chips" class="clip" data-start="5.4" data-duration="3.6"><span>10% → 99.6%</span><span>$1.15 fine-tune</span><span>runs offline</span></div>
+      <p id="end-url" class="clip" data-start="5.9" data-duration="3.1">github.com/advikdivekar/deed</p>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#end-wrap", { clipPath: "circle(0% at 50% 20%)" }, { clipPath: "circle(150% at 50% 20%)", duration: 0.55, ease: "power3.inOut" }, 0);
+    tl.fromTo("#end-mark", { opacity: 0, scale: 0.6, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "back.out(1.3)" }, 0.6);
+    tl.fromTo("#end-word", { opacity: 0, filter: "blur(10px)", clipPath: "inset(0 100% 0 0)" }, { opacity: 1, filter: "blur(0px)", clipPath: "inset(0 0% 0 0)", duration: 0.55, ease: "power3.out" }, 0.9);
+    ["#end-l1", "#end-l2", "#end-l3"].forEach((s, i) => tl.fromTo(s, { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power4.out" }, [1.55, 2.85, 4.15][i]));
+    tl.fromTo("#end-chips span", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power3.out", stagger: 0.1 }, 5.45);
+    tl.fromTo("#end-url", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3 }, 5.95);
+    window.__timelines["end"] = tl;
+  </script>
+</template>

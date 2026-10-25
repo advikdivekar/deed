@@ -51,6 +51,8 @@ Slow work, made steady, by a model that knows its place.
 ## Demo
 
 > 🎬 **Demo video:** *(embedded here at publish)*
+>
+> Made with open tools too: narration by Kokoro (Apache-2.0), animation by HTML, CSS and GSAP, rendered with HyperFrames.
 
 The studio is a Next.js app. It replays **real recorded outputs from my fine-tuned model**, on deeds it never saw in training, while every safety check runs **live in your browser**. The model's output is the model's. The checks are real code. Nothing here is mocked.
 
@@ -112,7 +114,13 @@ I deliberately held back one **writing style** (every number spelled out) and on
 
 # Best Use of Tinker: the engineering
 
-The brief I gave myself: **the best result at the lowest price.** Every decision below serves that.
+## 10% → 99.6%, for $1.15
+
+**The base model read 10% of deeds exactly right. The fine-tuned one reads 99.6%.** Same model, same prompt, same checks. The only thing that changed was **one dollar and fifteen cents of Tinker training.**
+
+![Deeds read exactly right, before and after](https://raw.githubusercontent.com/advikdivekar/deed/main/docs/charts/before_after.png)
+
+The brief I gave myself wasn't just *good results*. It was **good results at the lowest price.** Every decision below serves that, and every one is measured.
 
 ![The fine-tuning pipeline](https://raw.githubusercontent.com/advikdivekar/deed/main/docs/charts/finetune_pipeline.png)
 
@@ -131,6 +139,8 @@ C N 3 45 22 E 366.15 ft R 944.33 ft L | stone
 ```
 
 Code converts it back to JSON. **145 tokens. 3.8× smaller.** Tinker bills per token, so this one choice cuts training, evaluation and local inference cost at once, and costs nothing to run. It's the best-value line of code in the project.
+
+![3.8x fewer tokens](https://raw.githubusercontent.com/advikdivekar/deed/main/docs/charts/token_compaction.png)
 
 ## 3. The actual training setup
 
@@ -151,6 +161,10 @@ op = await tc.optim_step_async(AdamParams(learning_rate=lr_at(s), beta1=0.9, bet
 - **Pipelined steps**: step *k+1* is submitted before step *k* returns, so the service never idles between round trips
 - **A checkpoint every epoch** via `save_weights_for_sampler`, so epochs can be compared without retraining
 - **A budget guard** that prices each job from token counts *before* submitting and refuses to launch one that would burn half the cap
+
+The whole 429-step run took **16 minutes**. The loss falls from 1,806 on step 1 to under 0.1 by step 41, inside the first third of the first epoch.
+
+![Training loss across 3 epochs](https://raw.githubusercontent.com/advikdivekar/deed/main/docs/charts/training_loss.png)
 
 ## 4. Find the knee of the curve
 
@@ -198,6 +212,8 @@ The cheapest inference is the one you don't pay for. I downloaded the **369 MB L
 ![Where all 3,000 deeds ended up](https://raw.githubusercontent.com/advikdivekar/deed/main/docs/charts/where_deeds_end_up.png)
 
 ### The whole bill
+
+![Where the $3.80 went](https://raw.githubusercontent.com/advikdivekar/deed/main/docs/charts/cost_breakdown.png)
 
 | item | est. cost |
 |---|---|

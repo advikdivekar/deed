@@ -1,0 +1,45 @@
+<template>
+  <style>
+    #root { position:absolute; inset:0; overflow:hidden; font-family:Inter, sans-serif; }
+    #off-wrap { position:absolute; inset:0; background:#02494F; color:#F4F7F7; }
+    #off-eyebrow { position:absolute; left:160px; top:130px; font:500 28px "JetBrains Mono", monospace; letter-spacing:.2em; text-transform:uppercase; color:#6FD6DE; }
+    #off-big { position:absolute; left:160px; top:200px; font:200 320px/1 Inter, sans-serif; letter-spacing:-.05em; font-variant-numeric:tabular-nums; color:#fff; white-space:nowrap; }
+    #off-big small { font-size:200px; color:#6FD6DE; }
+    #off-cap { position:absolute; left:166px; top:560px; font:400 50px Inter, sans-serif; color:#F4F7F7; }
+    #off-stats { position:absolute; left:166px; top:850px; font:500 30px/1.6 "JetBrains Mono", monospace; color:#B9D4D6; }
+    #off-wifi { position:absolute; left:1380px; top:190px; width:340px; height:340px; }
+    #off-nonet { position:absolute; left:1380px; top:548px; font:600 36px "JetBrains Mono", monospace; letter-spacing:.06em; color:#E39C86; }
+    #off-zero { position:absolute; left:1380px; top:650px; font:300 150px/1 Inter, sans-serif; letter-spacing:-.04em; color:#6FD6DE; white-space:nowrap; }
+    #off-zero small { display:block; font:400 36px Inter, sans-serif; letter-spacing:0; color:#F4F7F7; margin-top:8px; }
+  </style>
+  <div id="root" data-composition-id="offline" data-width="1920" data-height="1080">
+    <div id="off-wrap">
+      <p id="off-eyebrow" class="clip" data-start="0.8" data-duration="7">The weights are mine</p>
+      <p id="off-big" class="clip" data-start="1.0" data-duration="6.9">0<small>/150</small></p>
+      <p id="off-cap" class="clip" data-start="2.3" data-duration="5.6">deeds read exactly right, on a laptop</p>
+      <p id="off-stats" class="clip" data-start="2.9" data-duration="5">369 MB LoRA adapter · 4-bit Qwen3-8B · Apple M3 Pro, 18 GB<br>median 7.5 seconds per deed</p>
+      <svg id="off-wifi" class="clip" data-start="5.1" data-duration="2.8" viewBox="0 0 340 340" fill="none">
+        <g stroke="#F4F7F7" stroke-width="16" stroke-linecap="round"><path d="M40 130 A190 190 0 0 1 300 130" /><path d="M85 180 A125 125 0 0 1 255 180" /><path d="M128 228 A62 62 0 0 1 212 228" /></g>
+        <circle cx="170" cy="278" r="15" fill="#F4F7F7" />
+        <path id="off-slash" d="M50 40 L292 310" stroke="#E39C86" stroke-width="20" stroke-linecap="round" pathLength="1" />
+      </svg>
+      <p id="off-nonet" class="clip" data-start="5.3" data-duration="2.6">no network</p>
+      <p id="off-zero" class="clip" data-start="6.2" data-duration="1.7">$0<small>per deed</small></p>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const c = { v: 0 }, big = document.querySelector("#off-big");
+    tl.fromTo("#off-wrap", { clipPath: "circle(0% at 50% 55%)" }, { clipPath: "circle(140% at 50% 55%)", duration: 0.55, ease: "power3.inOut" }, 0);
+    tl.fromTo("#off-eyebrow", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 0.8);
+    tl.fromTo("#off-big", { opacity: 0, filter: "blur(16px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power4.out" }, 1.0);
+    tl.fromTo(c, { v: 0 }, { v: 150, duration: 1.3, ease: "power2.out", onUpdate: () => { big.innerHTML = Math.round(c.v) + "<small>/150</small>"; } }, 1.0);
+    tl.fromTo("#off-cap", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 2.4);
+    tl.fromTo("#off-stats", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.35, ease: "power3.out" }, 2.9);
+    tl.fromTo("#off-wifi", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 5.1);
+    tl.fromTo("#off-slash", { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.45, ease: "power3.out" }, 5.3);
+    tl.fromTo("#off-nonet", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3 }, 5.5);
+    tl.fromTo("#off-zero", { opacity: 0, filter: "blur(14px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.28, ease: "power4.out" }, 6.3);
+    window.__timelines["offline"] = tl;
+  </script>
+</template>

@@ -11,3 +11,6 @@ node_modules
 offline/adapters/
 Screenshot*.jpg
 *.mp4
+video/renders/
+video/.hyperframes/
+video/node_modules/
