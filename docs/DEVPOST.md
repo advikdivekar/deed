@@ -295,4 +295,6 @@ If the deed is clean, that's the whole job. If it isn't, you don't get a confide
 
 *Built solo, with Claude Code.*
 
+**Three epochs. $1.15. 10% became 99.6%.** If you think that's a good trade, a ❤️ or 🦄 helps more people find it.
+
 What's the strangest phrase you've ever seen in a property deed? Mine so far is "to a white oak, thence along the run." Leave yours in the comments.
