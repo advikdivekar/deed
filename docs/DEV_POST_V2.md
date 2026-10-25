@@ -18,7 +18,7 @@ One digit is wrong. Maybe a clerk typed `103.2` for `130.2`. Maybe the scan smud
 
 {% embed https://youtu.be/S-m8AZUy7a8 %}
 
-## TL;DR
+## What You're About to Read
 
 - **The result:** one Tinker LoRA on Qwen3-8B moved exact deed reads from **10% (6/60)** to **99.6% (2,988/3,000, 95% CI 99.3–99.8%)** on fresh deeds. Same base model, same prompt, same checks.
 - **The cost:** **$1.15** and 16 minutes of training for the final model. **$0.17 of training already reaches 99.4%.** The entire project, every baseline and every evaluation included, came to about **$3.80**.

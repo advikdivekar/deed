@@ -23,7 +23,7 @@ eval/         metrics.py  run_eval.py  report.py  rescore.py  make_replays.py  p
 app/web/      Next.js UI (landing, studio, evidence)   app/api.py  optional live backend
 offline/      download_adapter.py  run_local.py (MLX, no internet)
 tests/        python tests (closure math, units, validator, generator, metrics)
-COST_LOG.md  EVAL_REPORT.md  DATA_CARD.md  PLAN.md
+COST_LOG.md  EVAL_REPORT.md  DATA_CARD.md
 ```
 
 ## Run it
