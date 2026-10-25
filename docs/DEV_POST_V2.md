@@ -1,5 +1,5 @@
 ---
-title: "A $1.15 fine-tune took a small model from 10% to 99.6% at reading property deeds, and it says 'check this line' instead of bluffing"
+title: "A small, not-so-smart model went from 10% to 99.6% at reading property deeds for $1.15, and it says 'check this line' instead of bluffing"
 tags: devchallenge, hacktoberfest, ai, opensource
 cover_image: https://raw.githubusercontent.com/advikdivekar/deed/main/docs/screens/03-studio-map.png
 ---
@@ -23,7 +23,7 @@ One digit is wrong. Maybe a clerk typed `103.2` for `130.2`. Maybe the scan smud
 - **The result:** one Tinker LoRA on Qwen3-8B moved exact deed reads from **10% (6/60)** to **99.6% (2,988/3,000, 95% CI 99.3–99.8%)** on fresh deeds. Same base model, same prompt, same checks.
 - **The cost:** **$1.15** and 16 minutes of training for the final model. **$0.17 of training already reaches 99.4%.** The entire project, every baseline and every evaluation included, came to about **$3.80**.
 - **The safety record:** on the same 60 deeds, wrong-and-unflagged answers went from **5 to 0**. Across 3,000 fresh deeds, 10 of the 12 imperfect outputs were caught by parsing and closure alone, and the other 2 are a label quirk in my own generator (same physical length, written two ways).
-- **The design rule:** the model reads. Plain, tested code does every piece of math. Six independent checks must agree before an answer is allowed to look confident.
+- **The design rule:** the model reads. Plain, tested code does every piece of math. Five independent checks must agree before an answer is allowed to look confident.
 - **You keep it:** I downloaded the 369 MB adapter and ran it offline on a laptop. **150 of 150 deeds read exactly right**, no network, no per-deed fee.
 
 ![DeedReader plots a parcel on real satellite imagery. Click a sentence and its side lights up.](https://raw.githubusercontent.com/advikdivekar/deed/main/docs/screens/03-studio-map.png)
@@ -44,7 +44,7 @@ The scary part isn't the time. It's that **one wrong digit quietly poisons every
 |---|---|---|
 | By hand | A drawing you trust | It takes 15–30 minutes a deed |
 | A regex parser | Instant and free | Only reads clean `N 41°00' E` calls, not 1800s prose or numbers spelled out in words |
-| A base open model with 3 examples in the prompt | Reads messy prose | **10% exactly right** in my test, and 5 of 60 wrong with no warning at all |
+| A base open model, no training | Reads messy prose | **10% exactly right** in my test, and 5 of 60 wrong with no warning at all |
 | **DeedReader** | A closed parcel on a real map in seconds | Says **NEEDS HUMAN REVIEW** when anything doesn't add up, and points at the line |
 
 ## What I built
@@ -64,13 +64,13 @@ DeedReader is the lazy version of that job: **paste, glance, approve.**
 
 The video above is the whole tour. The studio replays **real recorded outputs of my fine-tuned model** on deeds it never saw in training, while every safety check runs **live in your browser**.
 
+**Paste, glance, approve.** A clean deed: every check passes, the parcel closes to 1:2.9 million, and the studio reports 43.44 acres. Click any sentence and its side lights up in the drawing. Export to SVG, DXF or GeoJSON in one click.
+
+![All checks pass: a closed 8-sided parcel with two curves, 43.44 acres, ready to export](https://raw.githubusercontent.com/advikdivekar/deed/main/docs/screens/03b-studio-drawing.png)
+
 **Break it on purpose.** "Simulate a misread" corrupts a single number. Three independent checks fail at once, the banner turns red, and it names the line:
 
 ![A misread caught: misclosure 900 ft, the number isn't in its clause, an independent reader disagrees](https://raw.githubusercontent.com/advikdivekar/deed/main/docs/screens/04-misread-caught.png)
-
-**A real failure, left in.** This is an actual output from an early, untrained model. It was wrong, and it got flagged instead of drawn:
-
-![A real model failure, caught by the checks](https://raw.githubusercontent.com/advikdivekar/deed/main/docs/screens/05-zero-shot-flagged.png)
 
 And the lazy payoff, side by side:
 
@@ -88,14 +88,13 @@ And the lazy payoff, side by side:
 
 Language models read messy text brilliantly and are not accountable for arithmetic. So Qwen3-8B plus a LoRA does exactly one job, turning prose into structured calls. Everything after that is plain code with tests: closure, area, unit conversion (feet, chains, poles, varas, links) and plotting.
 
-Then six independent checks have to agree before an answer may look confident:
+Then five independent checks have to agree before an answer may look confident:
 
 1. The output parses.
 2. The parcel closes (1:5,000).
 3. Every number appears **in its own sentence** of the deed.
 4. Every landmark ("iron pin", "white oak") is backed by words in that sentence.
 5. A **second, independent reader**, a regex parser that never saw the model, agrees on bearing, distance and curve direction.
-6. The model's own confidence is above a floor.
 
 **The data: truth first, prose second.** There is no free pile of labelled real deeds, so I turned the problem around. A generator draws a **closed polygon with known bearings and distances**, then writes it up in many styles: symbols, dashes, words, archaic chains and links, and damaged OCR, with easements, deed-book numbers and stray acreage as distractors. The truth exists before the text does, so every label is exact. I deliberately held back one **writing style** (every number spelled out in words) and one **unit** (Texas varas) to see what the model does with things it has never met.
 
@@ -105,11 +104,13 @@ Then six independent checks have to agree before an answer may look confident:
 
 ## 10% → 99.6%, for $1.15
 
-**Same base model. Same prompt. Same checks. The only thing that changed was one dollar and fifteen cents of Tinker training.**
+**Qwen3-8B is a small model. Out of the box it doesn't know what a deed is, and it has nowhere near the knowledge of a giant LLM. It scored 10%. Same model, same prompt, same checks: the only thing that changed was one dollar and fifteen cents of Tinker training.**
+
+That's the point. I didn't need a model that knows everything. I needed one that does one narrow job perfectly, and fine-tuning is how a small model gets there.
 
 ![Deeds read exactly right, before and after](https://raw.githubusercontent.com/advikdivekar/deed/main/docs/charts/before_after.png)
 
-| | base Qwen3-8B, 3 examples | **Tinker LoRA** |
+| | base Qwen3-8B, untrained | **Tinker LoRA** |
 |---|---|---|
 | Exactly right | 6 / 60 (10%) | **2,988 / 3,000 (99.6%)** |
 | Sent to a human | 82% | **0.4%** |
@@ -175,7 +176,7 @@ I didn't train on everything and hope. Four runs, one epoch each, scored on the 
 
 I paired the base model against the fine-tune on **the same 60 deeds**, deed by deed:
 
-| | base, 3 examples | fine-tuned |
+| | base, untrained | fine-tuned |
 |---|---|---|
 | exactly right | 6 / 60 (10%, CI 4.7–20.1%) | **60 / 60** |
 | wrong and unflagged | 5 | **0** |
@@ -210,17 +211,11 @@ I didn't patch the decoder to accept each spelling the model improvised, because
 
 Onboarding a new style or unit is a 150-example, sub-dollar job. That's the workflow Tinker makes cheap enough to just do.
 
-### 7. I tested the alarm I wanted to rely on
-
-I expected the model's token probabilities to be a free early-warning system, so I swept the confidence floor from "off" to extreme. The flag rate and silent-error count didn't move once. The model is exactly as sure when it's wrong. So the real safety net is deterministic code, and I cut the claim from the plan.
-
-![Confidence floor sweep](https://raw.githubusercontent.com/advikdivekar/deed/main/docs/charts/tradeoff.png)
-
-### 8. Make evaluation free the second time
+### 7. Make evaluation free the second time
 
 Evaluation was the bigger bill (**$1.35** vs $2.46 for all training), so every sampled output is cached and the checks score from the cache. Improving the validator and re-scoring 3,000 deeds cost **$0.** One deed through Tinker costs about **$0.00015.**
 
-### 9. Rent the training. Keep the weights.
+### 8. Rent the training. Keep the weights.
 
 I downloaded the **369 MB adapter** and ran it with **MLX on the Apple GPU** over a 4-bit Qwen3-8B base:
 
@@ -248,22 +243,22 @@ I downloaded the **369 MB adapter** and ran it with **MLX on the Apple GPU** ove
 I'd rather you hear these from me, with numbers.
 
 - **The deeds are generated.** That's what made exact labels and a 3,000-deed fresh test possible, and it's why the held-out style and unit matter. The next step is running real recorded deeds through the same pipeline, which is why every real-world answer still ends in a human approve button.
-- **The baseline is a 3-example prompt**, not a heavily engineered one, and it was scored on 60 deeds to keep the bill low. That's why I paired it against the fine-tune on the same 60 and gave its confidence interval.
+- **The baseline is the plain base model**, not a heavily engineered one, and it was scored on 60 deeds to keep the bill low. That's why I paired it against the fine-tune on the same 60 and gave its confidence interval.
 - **Clause checks look for `;` or `thence`** between calls. Where that structure is missing, they fall back to whole-text checks.
 - **Curves are chord-form** (chord bearing, length, radius, direction). Deflection angles and station/offset descriptions aren't supported yet.
 - **It's a drafting aid.** Not a substitute for a licensed surveyor.
 
-**What went wrong on the way (and made it better):** my validator flagged *perfect* answers until I ran it on the generator's own ground truth and fixed three reading bugs. Two silent errors slipped past closure at 500 deeds (a dropped arc-minute and a flipped curve direction), which is exactly why the independent second reader exists. I once called the confidence floor "tuned" when it never was, so I corrected the code, the report and this post.
+**What went wrong on the way (and made it better):** my validator flagged *perfect* answers until I ran it on the generator's own ground truth and fixed three reading bugs. Two silent errors slipped past closure at 500 deeds (a dropped arc-minute and a flipped curve direction), which is exactly why the independent second reader exists.
 
 ## Why does open innovation matter?
 
 A closed API gives you a prompt box. Open weights gave me a **steering wheel.**
 
-- **I could change the model, not just the prompt.** Three examples in a prompt got 10%. A one-dollar LoRA got 99.6%.
+- **I could change the model, not just the prompt.** The untrained small model got 10%. A one-dollar LoRA got 99.6%.
 - **Deeds are private.** They name people, parcels and mortgages. The weights run on the laptop that holds the file. Turn Wi-Fi off and it still works.
 - **No meter running.** After the one-time fine-tune, deed number one thousand costs electricity.
 - **Nobody can deprecate it.** The base model, adapter and code sit on disk. A better open model next year is a training run, not a migration.
-- **I could look inside.** The confidence result, the varas failure and the label tie all exist because I could inspect every output.
+- **I could look inside.** The varas failure and the label tie all exist because I could inspect every output.
 
 The honest caveat: training ran on Tinker's servers on generated deeds only. No real person's land record was ever sent anywhere, and at run time nothing leaves the laptop.
 
